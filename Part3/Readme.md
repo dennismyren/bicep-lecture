@@ -5,7 +5,7 @@ Remember to update your bicepparam parameters, with a suitable name.
 To deploy your keyvault, run the following command from this folder:
 
 ```bash
-az deployment group create --location eastus --parameters main.bicepparam --what-if
+az deployment group create --resource-group rg-resourceGroupName --parameters main3.bicepparam --what-if
 ````
 
 ### Step 1: Preview the Deployment
@@ -21,5 +21,5 @@ Review the output carefully and make sure the resources to be deployed are corre
 Once you're satisfied, remove the `--what-if` flag and run the command again to execute the deployment:
 
 ```bash
-az deployment group create --location eastus --parameters main.bicepparam
+az deployment group create --resource-group rg-resourceGroupName --parameters main3.bicepparam
 ```

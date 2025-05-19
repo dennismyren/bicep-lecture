@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 param keyVaultName string
 param resourceGroupName string
-param tenantId string
+param userObjectId string
 var location = 'eastus'
 
 resource resourceGroupResource 'Microsoft.Resources/resourceGroups@2025-03-01' = {
@@ -15,10 +15,20 @@ resource keyVaultResource 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: 'kv-${keyVaultName}'
   location: location
   properties: {
+    accessPolicies: [
+      {
+        tenantId: tenant().tenantId
+        objectId: userObjectId
+        permissions: {
+          keys: [ 'all']
+          secrets: [ 'all' ]
+        }
+      }
+    ]
     sku: {
       name: 'standard'
       family: 'A'
     }
-    tenantId: tenantId
+    tenantId: tenant().tenantId
   }
 }

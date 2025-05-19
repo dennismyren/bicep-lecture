@@ -4,7 +4,7 @@ using 'main4.bicep'
 param keyVaultName = 'keyvaultname'
 
 @description('The tenant GUID.')
-param tenantId = '7ac9aa31-6b4c-426d-b1b2-e506dbff866e'
+param userObjectId = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 @description('The name of the resource group.')
 param resourceGroupName = 'resourcegroupname'
